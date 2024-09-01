@@ -1,0 +1,239 @@
+.qzz__wrapper {
+  border: 6px solid white;
+  border-radius: 20px;
+  width: 100svw;
+  max-width: 420px;
+  aspect-ratio: 9/16;
+  position: relative;
+  overflow: hidden;
+  display: none;
+  transition: transform 0.3s ease-in-out;
+  position: absolute;
+}
+
+.qzz__appear {
+  animation: qzz__wrapper_appear 0.3s ease-in-out;
+}
+
+.qzz__trigger {
+  border-radius: 999px;
+  width: 92px;
+  height: 92px;
+  border: 6px solid white;
+  overflow: hidden;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+}
+.qzz__trigger video {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.qzz__trigger .overlay {
+  background: hsla(0, 0%, 18%, 0.8);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+.qzz__trigger:hover .overlay {
+  opacity: 1;
+}
+
+.qzz__pause_button .playBtn {
+  display: none;
+}
+.paused .qzz__pause_button .playBtn {
+  display: block;
+}
+.paused .qzz__pause_button .pauseBtn {
+  display: none;
+}
+
+.qzz__video_wrapper {
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 4px;
+  background: rgb(75, 75, 75);
+  display: none;
+}
+
+.qzz__video_wrapper_appear {
+  animation: qzz__appearence 0.4s ease-in-out forwards;
+}
+
+.qzz__video_wrapper_disappear {
+  animation: qzz__disappearence 0.4s ease-in-out forwards;
+}
+
+.qzz__button {
+  background: hsla(0, 0%, 18%, 0.12);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  border: 0px;
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 6px 0px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  align-items: center;
+}
+
+.qzz__pause_button {
+  background: hsla(0, 0%, 18%, 0.4);
+  border-radius: 999px;
+  height: 64px;
+  width: 64px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: 0px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.1s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.qzz__progress-bar-container {
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: 16px;
+  position: absolute;
+  width: calc(100% - 32px);
+  left: 16px;
+  border-radius: 2.5px;
+  overflow: hidden;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.qzz__progress-bar {
+  height: 100%;
+  background-color: #fff;
+  width: 0;
+  pointer-events: none;
+}
+
+.qzz__button:hover,
+.qzz__pause_button:hover {
+  background: hsla(0, 0%, 18%, 0.8);
+}
+
+.qzz__video {
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.qzz_quiz_finish {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: rgb(255, 255, 255);
+  color: white;
+}
+
+.qzz__header {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: calc(100% - 40px);
+  left: 20px;
+  top: 30px;
+  align-items: center;
+}
+
+.qzz__time_display {
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  font-weight: 600;
+}
+
+.qzz__mute_button {
+  font-size: 24px;
+  line-height: 24px;
+  padding: 0;
+  background: 0;
+  border: 0px;
+  cursor: pointer;
+}
+
+.qzz__q-number {
+  background: #7371f4;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1/1;
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.qzz-q-text {
+  text-align: center;
+  grid-column: 2/3;
+}
+
+@keyframes qzz__appearence {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes qzz__disappearence {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes qzz__wrapper_appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
