@@ -248,12 +248,14 @@
 
 @media (max-width: 768px) {
   .qzz__wrapper {
-    max-height: calc(100dvh - 92px - 60px);
+    height: calc(100dvh - 92px - 60px);
+    left: calc((100dvw - (100dvh - 92px - 60px) / 16 * 9) / 2);
+    width: auto;
   }
 }
-
+/* 
 @media (max-width: 420px) {
   .qzz__wrapper {
-    left: 5dvw;
+    left: calc((100dvw - (100dvh - 92px - 60px) / 16 * 9) / 2);
   }
-}
+} */
